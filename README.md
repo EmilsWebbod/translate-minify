@@ -2,9 +2,17 @@
 
 Minified version of [@ewb/translate](https://github.com/EmilsWebbod/translate)  
 This should be used in production instead of @ewb/translate  
-Supports lazy loaded `words` and `texts` with 4 new functions. `addWords` `addTexts` `addWordsTranslations` `addTextsTranslations`  
+Supports lazy loaded `words` and `texts` with 4 new functions. `addWords` `addTexts` `addWordsTranslations` `addTextsTranslations`
 
 This library is much faster to lookup but has no add functions that changes your json files.
+
+## Install
+
+```
+yarn add @ewb/translate
+
+npm install -s @ewb/translate
+```
 
 ## Quick guide
 
@@ -26,12 +34,16 @@ translate.text('Hello to you too') // Hei, til deg også
 translate.setLocale('sv')
 translate.w('Hello') // Hej
 translate.t('Hello to you too') // Hej, till dig också
+
+translate.w('Hello', 'no') // Hei
+translate.t('Are you {{age}} years old?', { age: 10 }) // Är du 10 år gammal?
+translate.t('Are you {{age}} years old?', { locale: 'no', age: 10 }) // Er du 10 år gammel?
 ```
 
 ## Lazy load
 
 Added mass loading of new `words` or `texts` with new functions `addWords` and `addTexts`  
-And translations with functions `addWordsTranslations` and `addTextsTranslations`  
+And translations with functions `addWordsTranslations` and `addTextsTranslations`
 
 Lazy load then from disk or get them from a database. Your choice.
 
@@ -50,6 +62,14 @@ interface TranslateMinifyOptions {
   words?: WordTranslations;
   texts?: WordTranslations;
 }
+
+interface Variables {
+  [variable: string]: string | number | undefined;
+}
+
+interface TextOptions extends Variables {
+  locale?: string;
+}
 ```
 
 ## Class definitions
@@ -61,9 +81,9 @@ export default class TranslateMinify {
 
   public w(word: string, locale?: string): string;
   public word(word: string, locale?: string): string;
-  
-  public t(text: string, locale?: string): string;
-  public text(text: string, locale?: string): string;
+
+  public t(text: string, opts?: TextOptions): string;
+  public text(text: string, opts?: TextOptions): string;
 
   public setLocale(locale: string): void;
 

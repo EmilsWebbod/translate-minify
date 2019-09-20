@@ -1,4 +1,3 @@
-
 interface WordTranslations {
   [key: string]: {
     [key: string]: string;
@@ -11,6 +10,16 @@ interface TranslateMinifyOptions {
   words?: WordTranslations;
   texts?: WordTranslations;
 }
+
+interface Variables {
+  [variable: string]: string | number | undefined;
+}
+
+interface TextOptions extends Variables {
+  locale?: string;
+}
+
+export const VARIABLE_REGEXP = /{{(.*?)}}/g;
 
 export default class TranslateMinify {
   private readonly defaultLocale: string;
@@ -45,18 +54,21 @@ export default class TranslateMinify {
     return translated || word;
   }
 
-  public t(text: string, locale?: string) {
-    return this.text(text, locale);
+  public t(text: string, opts?: TextOptions) {
+    return this.text(text, opts);
   }
-  public text(text: string, locale = this.locale) {
+  public text(
+    text: string,
+    { locale = this.locale, ...variables }: TextOptions = {}
+  ) {
     if (this.defaultLocale === locale) {
-      return text;
+      return this.replaceVariables(text, variables);
     }
 
     const textObj = this.texts[text];
     const translated = textObj ? textObj[locale] : text;
 
-    return translated || text;
+    return this.replaceVariables(translated || text, variables);
   }
 
   public setLocale(locale: string) {
@@ -98,9 +110,15 @@ export default class TranslateMinify {
       }
     }
   }
+
+  private replaceVariables(text: string, variables: Variables) {
+    if (Object.keys(variables).length === 0) {
+      return text;
+    }
+    return text.replace(VARIABLE_REGEXP, (word, group) => {
+      return String(variables[group] || word);
+    });
+  }
 }
 
-export {
-  TranslateMinifyOptions,
-  WordTranslations
-};
+export { TranslateMinifyOptions, WordTranslations, TextOptions };

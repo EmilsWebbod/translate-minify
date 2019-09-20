@@ -1,8 +1,13 @@
 import { assert } from 'chai';
 import Translate, { TranslateMinifyOptions } from '../src';
 import {
-  newTextsTranslations, newWordsTranslations,
-  texts, textsTranslations, wordTranslations, words } from './mocks';
+  newTextsTranslations,
+  newWordsTranslations,
+  texts,
+  textsTranslations,
+  wordTranslations,
+  words
+} from './mocks';
 
 const defaultOptions: TranslateMinifyOptions = {
   defaultLocale: 'en',
@@ -64,13 +69,19 @@ describe('Translation object', () => {
   it('should add more words when given', () => {
     const newWord = 'New';
     translate.addWords(newWordsTranslations);
-    assert.equal(translate.word(newWord), newWordsTranslations[newWord]['no-nb']);
+    assert.equal(
+      translate.word(newWord),
+      newWordsTranslations[newWord]['no-nb']
+    );
   });
 
   it('should add more texts when given', () => {
     const newText = 'This is a new sentence';
     translate.addTexts(newTextsTranslations);
-    assert.equal(translate.text(newText), newTextsTranslations[newText]['no-nb']);
+    assert.equal(
+      translate.text(newText),
+      newTextsTranslations[newText]['no-nb']
+    );
   });
 
   it('should add new word translations if given same object with more translations', () => {
@@ -84,7 +95,10 @@ describe('Translation object', () => {
     translate.addTextsTranslations(textsTranslations);
     translate.setLocale('dk');
     assert.equal(translate.text(textKey), textsTranslations[textKey]['dk']);
-    assert.equal(translate.text(textKey, 'se'), texts[textKey]['se']);
+    assert.equal(
+      translate.text(textKey, { locale: 'se' }),
+      texts[textKey]['se']
+    );
   });
 
   it('should add word or text with special characters', () => {
@@ -96,5 +110,19 @@ describe('Translation object', () => {
     };
     translate.addWords(randomWords);
     assert.equal(translate.word(random), randomWords[random]['no-nb']);
-  })
+  });
+
+  it('should replace {{variable}}', () => {
+    const text = 'Are you {{age}} years old?';
+    const translation = 'Er du 10 år gammel?';
+    const translated = translate.text(text, { age: 10 });
+    assert.equal(translation, translated);
+  });
+
+  it('should replace {{variable}} even if no translation match', () => {
+    const text = "No, i'm {{age}} years old.";
+    const translation = "No, i'm 18 years old.";
+    const translated = translate.text(text, { age: 18 });
+    assert.equal(translation, translated);
+  });
 });
