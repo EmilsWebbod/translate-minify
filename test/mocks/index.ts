@@ -38,6 +38,9 @@ export const wordTranslations: WordTranslations = {
   },
   Tent: {
     dk: 'Test 6'
+  },
+  Extra: {
+    dk: 'Should not add'
   }
 };
 
@@ -78,6 +81,9 @@ export const textsTranslations: WordTranslations = {
   },
   'Yes this is good': {
     dk: 'Text transl 3'
+  },
+  'Some extra stuff': {
+    dk: 'Should not be added'
   }
 };
 

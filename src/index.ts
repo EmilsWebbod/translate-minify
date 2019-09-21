@@ -5,8 +5,8 @@ interface WordTranslations {
 }
 
 interface TranslateMinifyOptions {
-  defaultLocale: string;
-  locale: string;
+  defaultLocale?: string;
+  locale?: string;
   words?: WordTranslations;
   texts?: WordTranslations;
 }
