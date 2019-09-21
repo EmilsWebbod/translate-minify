@@ -26,8 +26,13 @@ describe('Default translation', () => {
     });
   });
 
-  it('should return default translation even if no match', () => {
+  it('should return default word translation even if no match', () => {
     const translated = translate.word('Test 2');
+    assert.equal(translated, 'Test 2');
+  });
+
+  it('should return default text translation even if no match', () => {
+    const translated = translate.text('Test 2');
     assert.equal(translated, 'Test 2');
   });
 });
@@ -57,7 +62,9 @@ describe('Translation object', () => {
     const word = 'Bullshit';
     const text = 'No translations for this';
     assert.equal(translate.word(word), word);
+    assert.equal(translate.w(word), word);
     assert.equal(translate.text(text), text);
+    assert.equal(translate.t(text), text);
   });
 
   it('should change locale if setLocale is set', () => {

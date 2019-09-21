@@ -1,5 +1,8 @@
 # Translate library minify
 
+[![CircleCI](https://circleci.com/gh/EmilsWebbod/translate-minify.svg?style=svg)](https://circleci.com/gh/EmilsWebbod/translate-minify)
+[![Coverage Status](https://coveralls.io/repos/github/EmilsWebbod/translate-minify/badge.svg?branch=master)](https://coveralls.io/github/EmilsWebbod/translate-minify?branch=master)
+
 Minified version of [@ewb/translate](https://github.com/EmilsWebbod/translate)  
 This should be used in production instead of @ewb/translate  
 Supports lazy loaded `words` and `texts` with 4 new functions. `addWords` `addTexts` `addWordsTranslations` `addTextsTranslations`
