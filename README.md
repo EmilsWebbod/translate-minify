@@ -1,7 +1,9 @@
 # Translate library minify
 
+[![npm version](https://badge.fury.io/js/%40ewb%2Ftranslate-minify.svg)](https://badge.fury.io/js/%40ewb%2Ftranslate-minify)
 [![CircleCI](https://circleci.com/gh/EmilsWebbod/translate-minify.svg?style=svg)](https://circleci.com/gh/EmilsWebbod/translate-minify)
 [![Coverage Status](https://coveralls.io/repos/github/EmilsWebbod/translate-minify/badge.svg?branch=master)](https://coveralls.io/github/EmilsWebbod/translate-minify?branch=master)
+[![GZIP](https://badgen.net/badge/gzip/723B/green)]()
 
 Minified version of [@ewb/translate](https://github.com/EmilsWebbod/translate)  
 This should be used in production instead of @ewb/translate  
