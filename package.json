@@ -1,6 +1,6 @@
 {
   "name": "@ewb/translate-minify",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Minified version of @ewb/translate. This should be used in production instead.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
