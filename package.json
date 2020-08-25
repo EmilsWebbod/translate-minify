@@ -37,7 +37,8 @@
   },
   "homepage": "https://github.com/EmilsWebbod/translate-minify#readme",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "husky": {
     "hooks": {
