@@ -20,14 +20,17 @@ describe('Default translation', () => {
   let translate: Translate;
 
   beforeEach(() => {
-    translate = new Translate({
-      ...defaultOptions,
-      locale: 'en'
-    });
+    translate = new Translate(
+      {
+        ...defaultOptions,
+        locale: 'en'
+      },
+      true
+    );
   });
 
   it('should init with default values', () => {
-    const _translate = new Translate({});
+    const _translate = new Translate({}, true);
     assert.isTrue(_translate instanceof Translate);
   });
 
@@ -48,7 +51,7 @@ describe('Translation object', () => {
   const textKey = 'This is a test';
 
   beforeEach(() => {
-    translate = new Translate(defaultOptions);
+    translate = new Translate(defaultOptions, true);
   });
 
   it('should be typeof class', () => {

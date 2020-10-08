@@ -30,13 +30,16 @@ export default class TranslateMinify {
 
   private locale: string = 'en';
 
-  constructor({
-    defaultLocale = 'en',
-    locale = 'en',
-    words = {},
-    texts = {}
-  }: TranslateMinifyOptions) {
-    if (translate) {
+  constructor(
+    {
+      defaultLocale = 'en',
+      locale = 'en',
+      words = {},
+      texts = {}
+    }: TranslateMinifyOptions = {},
+    overrideNew?: boolean
+  ) {
+    if (!overrideNew && translate) {
       return translate;
     }
 
