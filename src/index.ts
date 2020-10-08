@@ -21,12 +21,14 @@ interface TextOptions extends Variables {
 
 export const VARIABLE_REGEXP = /{{(.*?)}}/g;
 
-export default class TranslateMinify {
-  private readonly defaultLocale: string;
-  private words: WordTranslations;
-  private texts: WordTranslations;
+let translate: TranslateMinify;
 
-  private locale: string;
+export default class TranslateMinify {
+  private readonly defaultLocale: string = 'en';
+  private words: WordTranslations = {};
+  private texts: WordTranslations = {};
+
+  private locale: string = 'en';
 
   constructor({
     defaultLocale = 'en',
@@ -34,10 +36,16 @@ export default class TranslateMinify {
     words = {},
     texts = {}
   }: TranslateMinifyOptions) {
+    if (translate) {
+      return translate;
+    }
+
     this.defaultLocale = defaultLocale;
     this.locale = locale;
     this.words = words;
     this.texts = texts;
+
+    translate = this;
   }
 
   public w(word: string, locale?: string) {
