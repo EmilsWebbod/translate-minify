@@ -160,7 +160,7 @@ describe('Translation object', () => {
 
   it('should not translate if word not found', () => {
     const text = "No, i'm {{age}} years {{cool}}.";
-    const translation = "No, i'm 18 years {{cool}}.";
+    const translation = "No, i'm 18 years .";
     const translated = translate.text(text, { age: 18 });
     assert.equal(translation, translated);
   });
