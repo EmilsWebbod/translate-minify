@@ -126,8 +126,8 @@ export default class TranslateMinify {
     if (Object.keys(variables).length === 0) {
       return text;
     }
-    return text.replace(VARIABLE_REGEXP, (word, group) => {
-      return String(variables[group] || word);
+    return text.replace(VARIABLE_REGEXP, (_word, group) => {
+      return String(group in variables ? variables[group] ?? '' : '');
     });
   }
 }
