@@ -13,12 +13,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "src/**/*.spec.*",
-    "src/**/story.tsx",
-    "src/**/**/story.tsx"
-  ]
+  "include": ["index.ts"],
+  "exclude": ["node_modules"]
 }
