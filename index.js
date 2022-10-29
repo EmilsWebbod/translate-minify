@@ -108,4 +108,3 @@ class TranslateMinify {
   }
 }
 exports.default = TranslateMinify;
-//# sourceMappingURL=index.js.map

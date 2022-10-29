@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
     "target": "es6",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "jsx": "react",
-    "sourceMap": true,
-    "lib": ["dom", "es7", "es2019"],
-    "skipLibCheck": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "jsx": "react",
+    "sourceMap": false,
+    "lib": ["dom", "es7"],
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["index.ts"],
   "exclude": ["node_modules"]

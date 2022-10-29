@@ -1,18 +1,18 @@
-interface WordTranslations {
+export interface WordTranslations {
   [key: string]: {
     [key: string]: string;
   };
 }
-interface TranslateMinifyOptions {
+export interface TranslateMinifyOptions {
   defaultLocale?: string;
   locale?: string;
   words?: WordTranslations;
   texts?: WordTranslations;
 }
-interface Variables {
+export interface Variables {
   [variable: string]: string | number | undefined;
 }
-interface TextOptions extends Variables {
+export interface TextOptions extends Variables {
   locale?: string;
 }
 export declare const VARIABLE_REGEXP: RegExp;
@@ -36,4 +36,3 @@ export default class TranslateMinify {
   addTextsTranslations(translations: WordTranslations): void;
   private replaceVariables;
 }
-export { TranslateMinifyOptions, WordTranslations, TextOptions };

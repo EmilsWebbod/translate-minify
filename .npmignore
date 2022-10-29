@@ -17,5 +17,5 @@ test/
 .nycrc
 tsconfig.json
 tsconfig.tsbuildinfo
-yarn.lock
 tslint.json
+yarn.lock
