@@ -1,19 +1,19 @@
 import { assert } from 'chai';
-import Translate, { TranslateMinifyOptions } from '../src';
+import Translate, { TranslateMinifyOptions } from '../index';
 import {
   newTextsTranslations,
   newWordsTranslations,
   texts,
   textsTranslations,
   wordTranslations,
-  words
+  words,
 } from './mocks';
 
 const defaultOptions: TranslateMinifyOptions = {
   defaultLocale: 'en',
   locale: 'no-nb',
   words,
-  texts
+  texts,
 };
 
 describe('Default translation', () => {
@@ -23,7 +23,7 @@ describe('Default translation', () => {
     translate = new Translate(
       {
         ...defaultOptions,
-        locale: 'en'
+        locale: 'en',
       },
       true
     );
@@ -130,8 +130,8 @@ describe('Translation object', () => {
     const random = `§"#¤%&/()=?*^_:;,.-'¨\+0+|@£$€€{[]}´~`;
     const randomWords = {
       [random]: {
-        'no-nb': 'Translated'
-      }
+        'no-nb': 'Translated',
+      },
     };
     translate.addWords(randomWords);
     assert.equal(translate.word(random), randomWords[random]['no-nb']);

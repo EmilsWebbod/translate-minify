@@ -1,0 +1,19 @@
+# Folders
+.husky/
+.idea/
+.circleci/
+node_modules/
+
+# Typescript
+*.ts
+*.js.map
+!*.d.ts
+
+# Project files
+.gitattributes
+.gitignore
+.prettierrc
+.nycrc
+tsconfig.json
+tsconfig.tsbuildinfo
+yarn.lock

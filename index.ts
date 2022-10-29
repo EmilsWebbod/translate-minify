@@ -35,7 +35,7 @@ export default class TranslateMinify {
       defaultLocale = 'en',
       locale = 'en',
       words = {},
-      texts = {}
+      texts = {},
     }: TranslateMinifyOptions = {},
     overrideNew?: boolean
   ) {
@@ -89,14 +89,14 @@ export default class TranslateMinify {
   public addWords(newWords: WordTranslations) {
     this.words = {
       ...this.words,
-      ...newWords
+      ...newWords,
     };
   }
 
   public addTexts(newTexts: WordTranslations) {
     this.texts = {
       ...this.texts,
-      ...newTexts
+      ...newTexts,
     };
   }
 
@@ -105,7 +105,7 @@ export default class TranslateMinify {
       if (translations.hasOwnProperty(key) && this.words[key]) {
         this.words[key] = {
           ...this.words[key],
-          ...translations[key]
+          ...translations[key],
         };
       }
     }
@@ -116,7 +116,7 @@ export default class TranslateMinify {
       if (translations.hasOwnProperty(key) && this.texts[key]) {
         this.texts[key] = {
           ...this.texts[key],
-          ...translations[key]
+          ...translations[key],
         };
       }
     }
