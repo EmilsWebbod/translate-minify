@@ -3,6 +3,7 @@
 .idea/
 .circleci/
 node_modules/
+test/
 
 # Typescript
 *.ts
@@ -17,3 +18,4 @@ node_modules/
 tsconfig.json
 tsconfig.tsbuildinfo
 yarn.lock
+tslint.json
