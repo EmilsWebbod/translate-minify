@@ -15,7 +15,6 @@ export interface Variables {
 export interface TextOptions extends Variables {
   locale?: string;
 }
-export declare const VARIABLE_REGEXP: RegExp;
 export default class TranslateMinify {
   private readonly defaultLocale;
   private words;

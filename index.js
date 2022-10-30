@@ -17,8 +17,7 @@ var __rest =
     return t;
   };
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.VARIABLE_REGEXP = void 0;
-exports.VARIABLE_REGEXP = /{{(.*?)}}/g;
+const VARIABLE_REGEXP = /{{(.*?)}}/g;
 let translate;
 class TranslateMinify {
   constructor(
@@ -95,7 +94,7 @@ class TranslateMinify {
     if (Object.keys(variables).length === 0) {
       return text;
     }
-    return text.replace(exports.VARIABLE_REGEXP, (_word, group) => {
+    return text.replace(VARIABLE_REGEXP, (_word, group) => {
       var _a;
       return String(
         group in variables
@@ -108,3 +107,4 @@ class TranslateMinify {
   }
 }
 exports.default = TranslateMinify;
+module.exports = TranslateMinify;

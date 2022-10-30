@@ -4,7 +4,7 @@
     "rootDir": ".",
     "target": "es6",
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "CommonJS",
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -16,7 +16,7 @@
     "lib": ["dom", "es7"],
     "skipLibCheck": true,
     "isolatedModules": true,
-    "typeRoots": ["node_modules/@types"]
+    "allowSyntheticDefaultImports": true
   },
   "include": ["index.ts"],
   "exclude": ["node_modules"]

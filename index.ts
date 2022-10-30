@@ -19,7 +19,7 @@ export interface TextOptions extends Variables {
   locale?: string;
 }
 
-export const VARIABLE_REGEXP = /{{(.*?)}}/g;
+const VARIABLE_REGEXP = /{{(.*?)}}/g;
 
 let translate: TranslateMinify;
 
@@ -131,3 +131,5 @@ export default class TranslateMinify {
     });
   }
 }
+declare const module: any;
+module.exports = TranslateMinify;
