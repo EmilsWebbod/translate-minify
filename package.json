@@ -2,9 +2,8 @@
   "name": "@ewb/translate-minify",
   "version": "1.3.6",
   "description": "Minified version of @ewb/translate. This should be used in production instead.",
-  "main": "./index.js",
-  "module": "./index.js",
-  "types": "./index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "start": "yarn build:watch",
     "build": "tsc",

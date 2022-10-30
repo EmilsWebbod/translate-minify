@@ -72,8 +72,8 @@
         "affectsGlobalScope": true
       },
       "./index.ts": {
-        "version": "44d58d87a3904ab60b803aaae0fcd3dd2f5f129baaf6e78cb1b4856c2a54613b",
-        "signature": "492bf53c1a4b4fa253775aeb1a9796b3c825dc36dc75770187d1bbb13e0f89d6",
+        "version": "4970fe13ad4dd4bc19418eaa91dcfb6ec1e528148f2ca121dd7a8ef923ef0b4f",
+        "signature": "acee4fdf1cbd312e1d495f69d28d8eb696d128bb0e98f4fb5d5b23e0940aeb0d",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/chai/index.d.ts": {
@@ -117,9 +117,7 @@
       ],
       "skipLibCheck": true,
       "isolatedModules": true,
-      "typeRoots": [
-        "./node_modules/@types"
-      ],
+      "allowSyntheticDefaultImports": true,
       "watch": true,
       "incremental": true,
       "configFilePath": "./tsconfig.json"
