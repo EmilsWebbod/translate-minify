@@ -1,4 +1,4 @@
-import { assert } from 'chai';
+import { describe, it, assert, beforeEach } from 'vitest';
 import Translate, { TranslateMinifyOptions } from '../index';
 import {
   newTextsTranslations,
