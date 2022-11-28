@@ -131,5 +131,3 @@ export default class TranslateMinify {
     });
   }
 }
-declare const module: any;
-module.exports = TranslateMinify;

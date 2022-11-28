@@ -9,5 +9,6 @@ lib/
 .nyc_output
 index.d.ts
 index.js
+*.map
 
 yarn-error.log
