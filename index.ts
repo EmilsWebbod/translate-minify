@@ -19,6 +19,10 @@ export interface TextOptions extends Variables {
   locale?: string;
 }
 
+export interface TranslateAddOptions {
+  packageName?: string;
+}
+
 const VARIABLE_REGEXP = /{{(.*?)}}/g;
 
 let translate: TranslateMinify;
@@ -31,13 +35,8 @@ export default class TranslateMinify {
   private locale: string = 'en';
 
   constructor(
-    {
-      defaultLocale = 'en',
-      locale = 'en',
-      words = {},
-      texts = {},
-    }: TranslateMinifyOptions = {},
-    overrideNew?: boolean
+    { defaultLocale = 'en', locale = 'en', words = {}, texts = {} }: TranslateMinifyOptions = {},
+    overrideNew?: boolean,
   ) {
     if (!overrideNew && translate) {
       return translate;
@@ -68,10 +67,7 @@ export default class TranslateMinify {
   public t(text: string, opts?: TextOptions) {
     return this.text(text, opts);
   }
-  public text(
-    text: string,
-    { locale = this.locale, ...variables }: TextOptions = {}
-  ) {
+  public text(text: string, { locale = this.locale, ...variables }: TextOptions = {}) {
     if (this.defaultLocale === locale) {
       return this.replaceVariables(text, variables);
     }
@@ -86,14 +82,14 @@ export default class TranslateMinify {
     this.locale = locale;
   }
 
-  public addWords(newWords: WordTranslations) {
+  public addWords(newWords: WordTranslations, _options?: TranslateAddOptions) {
     this.words = {
       ...this.words,
       ...newWords,
     };
   }
 
-  public addTexts(newTexts: WordTranslations) {
+  public addTexts(newTexts: WordTranslations, _options?: TranslateAddOptions) {
     this.texts = {
       ...this.texts,
       ...newTexts,
